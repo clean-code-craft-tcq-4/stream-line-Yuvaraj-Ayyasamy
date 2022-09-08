@@ -10,7 +10,7 @@ void testgenerateSensorBMSData() {
     }
     bmsParam = generateSensorBMSData(bmsParam);
     for (index=0; index<NUMOFREADINGS; index++) {
-        assert((bmsParam.temp[index] != 0) && (bmsParam.soc[index] != 0));
+        assert((bmsParam.temp[index] >= 0) && (bmsParam.soc[index] >= 0));
     }
 }
 
