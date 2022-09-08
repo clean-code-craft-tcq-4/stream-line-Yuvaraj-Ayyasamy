@@ -16,7 +16,7 @@ BMSData generateSensorBMSData(BMSData bmsParam) {
 int main() {
     int fd1[2];
     pid_t p;
-    int dataLen = 0;
+    //int dataLen = 0;
     if (pipe(fd1) == -1) {
         fprintf(stderr, "Pipe Failed");
     }
@@ -27,9 +27,9 @@ int main() {
                 fprintf(stderr, "fork Failed");
                 break;
             } else if (p > 0) {
-                dataLen = sender(fd1);
+                sender(fd1);
             } else {
-                receiver(fd1, dataLen);
+                receiver(fd1);
             }
         }
     }
