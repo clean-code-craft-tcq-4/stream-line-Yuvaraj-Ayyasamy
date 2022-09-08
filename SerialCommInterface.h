@@ -20,6 +20,6 @@ typedef struct BMSData
 
 int sender(int fd1[]);
 void receiver(int fd1[], int dataLen);
-void writeTo(int fd1, BMSData bmsParam, int *dataLen);
+BMSData writeTo(int fd1, BMSData bmsParam, int *dataLen);
 void readFrom(int fd1, BMSData bmsParam, int dataLen);
 void generateSensorBMSData(BMSData bmsParam);
