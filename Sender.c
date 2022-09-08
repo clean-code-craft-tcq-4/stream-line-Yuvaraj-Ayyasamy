@@ -1,8 +1,8 @@
 #include "SerialCommInterface.h"
 void writeTo(int fd1, BMSData bmsParam) {
     for (int dataIndex = 0; dataIndex < NUMOFREADINGS; dataIndex++) {
-        write(fd1, bmsParam.temp[dataIndex], sizeof(int));
-        write(fd1, bmsParam.soc[dataIndex], sizeof(int));
+        write(fd1, &bmsParam.temp[dataIndex], sizeof(int));
+        write(fd1, &bmsParam.soc[dataIndex], sizeof(int));
     }
 }
 
