@@ -7,31 +7,22 @@ pid_t createProcess() {
 int main()
 {
     int fd1[2];
-    //char input_str[100];
     pid_t p;
- 
     if (pipe(fd1) == -1) {
         fprintf(stderr, "Pipe Failed");
     }
-    //strncpy(input_str, "www.geeks", 10);
     p = createProcess();
+    for (int index=0; index<10; index++) {
     if (p < 0) {
         fprintf(stderr, "fork Failed");
+        break;
     } else if (p > 0) {
-        /*char concat_str[100];
-        close(fd1[0]);
-        write(fd1[1], input_str, strlen(input_str) + 1);
-        close(fd1[1]);*/
         sender(fd1);
         wait(NULL);
     } else {
-        /*close(fd1[1]);
-        char concat_str[100];
-        read(fd1[0], concat_str, 100);
-        printf("Concatenated string %s\n", concat_str);
-        close(fd1[0]);*/
         receiver(fd1);
         exit(0);
+    }
     }
  return 0;
 }
