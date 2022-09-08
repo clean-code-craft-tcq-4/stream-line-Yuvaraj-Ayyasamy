@@ -1,5 +1,5 @@
 #include "SerialCommInterface.h"
-#include <cassert.h>
+#include <assert.h>
 
 void testgenerateSensorBMSData() {
     BMSData bmsParam;
