@@ -3,15 +3,15 @@
 #include <string.h>
 
 int main() {
-    FILE* ptr;
+    FILE* fptr;
     int num = 1234;
-    ptr = fopen("test.txt", "w");
-    if (NULL == ptr) {
+    fptr = fopen("test.txt", "w");
+    if (NULL == fptr) {
         printf("file can't be opened \n");
     } else {
         printf("content of this file are \n");
         fprintf(fptr,"%d",num);
     }
-    fclose(ptr);
+    fclose(fptr);
     return 0;
 }
