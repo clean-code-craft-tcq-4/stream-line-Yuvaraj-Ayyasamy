@@ -7,13 +7,13 @@ pid_t createProcess() {
 int main()
 {
     int fd1[2];
-    char input_str[100];
+    //char input_str[100];
     pid_t p;
  
     if (pipe(fd1) == -1) {
         fprintf(stderr, "Pipe Failed");
     }
-    strncpy(input_str, "www.geeks", 10);
+    //strncpy(input_str, "www.geeks", 10);
     p = createProcess();
     if (p < 0) {
         fprintf(stderr, "fork Failed");
