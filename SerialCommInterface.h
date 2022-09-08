@@ -33,4 +33,4 @@ BMSData generateSensorBMSData(BMSData bmsParam);
 int commInit();
 int pipeInit(int fd1[]);
 pid_t createProcess();
-int runProcess(pid_t p);
+int runProcess(pid_t p, BMSData bmsParam[], int fd1[]);
