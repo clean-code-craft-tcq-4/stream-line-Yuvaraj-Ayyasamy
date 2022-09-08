@@ -1,7 +1,7 @@
 #include "SerialCommInterface.h"
+#include <cassert.h>
 
-void testgenerateSensorBMSData()
-{
+void testgenerateSensorBMSData() {
     BMSData bmsParam;
     int index=0;
     for (; index<NUMOFREADINGS; index++) {
@@ -14,24 +14,20 @@ void testgenerateSensorBMSData()
     }
 }
 
-void testcreateProcess()
-{
+void testcreateProcess() {
     assert(createProcess() >= SUCCESS);
 }
 
-void testpipeInit()
-{
+void testpipeInit() {
     int fd1[2];
     assert(pipeInit(fd1) == SUCCESS);
 }
 
-void testcommInit()
-{
+void testcommInit() {
     assert(commInit() == SUCCESS);
 }
 
-int main()
-{
+int main() {
     testgenerateSensorBMSData();
     testcreateProcess();
     testpipeInit();
