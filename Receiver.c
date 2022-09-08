@@ -4,9 +4,9 @@ void readFrom(int fd1) {
    // for (int dataIndex = 0; dataIndex < 2/*NUMOFREADINGS*/; dataIndex++) {
         // read(fd1, &bmsParam.temp[dataIndex], sizeof(int));
         // read(fd1, &bmsParam.soc[dataIndex], sizeof(int));
-        char tempArray[100];
-        read(fd1, tempArray, 6);
-        printf("receiver: %s", tempArray);
+        char dataArray[500];
+        read(fd1, dataArray, 350);
+        printf("receiver: %s", dataArray);
         // printf("%d %d\n", bmsParam.temp[dataIndex], bmsParam.soc[dataIndex]);
     //}
 }
