@@ -5,7 +5,7 @@ void readFrom(int fd1, BMSData bmsParam, int dataLen) {
         // read(fd1, &bmsParam.temp[dataIndex], sizeof(int));
         // read(fd1, &bmsParam.soc[dataIndex], sizeof(int));
         char tempArray[100];
-        read(fd1, tempArray, sizeof(int));
+        read(fd1, tempArray, dataLen);
         printf("%s", tempArray);
         // printf("%d %d\n", bmsParam.temp[dataIndex], bmsParam.soc[dataIndex]);
     //}
