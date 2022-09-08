@@ -1,5 +1,14 @@
 #include "SerialCommInterface.h"
 
+int pipeInit(int fd1[]) {
+    int retStatus = SUCCESS;
+    if (pipe(fd1) == FAIL) {
+        fprintf(stderr, "Pipe Failed");
+        retStatus = FAIL;
+    }
+    return retStatus;
+}
+
 pid_t createProcess() {
     return fork();
 }
@@ -14,18 +23,11 @@ BMSData generateSensorBMSData(BMSData bmsParam) {
     return bmsParam;
 }
 
-int main() {
-    int fd1[2];
-    pid_t p;
-    BMSData bmsParam[MAXSENSORCNT];
-
-    if (pipe(fd1) == -1) {
-        fprintf(stderr, "Pipe Failed");
-    }
-
-    p = createProcess();
+int runProcess(pid_t p) {
+    int retStatus = SUCCESS;
     if (p < 0) {
         fprintf(stderr, "fork Failed");
+        retStatus = FAIL;
     } else if (p > 0) {
         for (int sensorIndex = 0; sensorIndex < MAXSENSORCNT; sensorIndex++) {
             bmsParam[sensorIndex] = generateSensorBMSData(bmsParam[sensorIndex]);
@@ -34,6 +36,18 @@ int main() {
     } else {
         receiver(fd1);
     }
+    return retStatus;
+}
 
- return 0;
+int commInit() {
+    int retStatus = SUCCESS;
+    int fd1[2];
+    pid_t p;
+    BMSData bmsParam[MAXSENSORCNT];
+    retStatus = pipeInit(fd1);
+    if (SUCCESS == retStatus) {
+        p = createProcess();
+        retStatus = runProcess(p);
+    }
+    return retStatus;
 }
