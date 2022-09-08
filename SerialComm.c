@@ -23,7 +23,7 @@ BMSData generateSensorBMSData(BMSData bmsParam) {
     return bmsParam;
 }
 
-int runProcess(pid_t p) {
+int runProcess(pid_t p, BMSData bmsParam[], int fd1[]) {
     int retStatus = SUCCESS;
     if (p > 0) {
         for (int sensorIndex = 0; sensorIndex < MAXSENSORCNT; sensorIndex++) {
@@ -48,7 +48,7 @@ int commInit() {
             fprintf(stderr, "fork Failed");
             retStatus = FAIL;
         } else {
-            retStatus = runProcess(p);
+            retStatus = runProcess(p, bmsParam, fd1);
         }
     }
     return retStatus;
