@@ -2,8 +2,8 @@
 
 void readFrom(int fd1, BMSData bmsParam) {
     for (int dataIndex = 0; dataIndex < NUMOFREADINGS; dataIndex++) {
-        read(fd1, bmsParam.temp[dataIndex], int);
-        read(fd1, bmsParam.soc[dataIndex], int);
+        read(fd1, bmsParam.temp[dataIndex], sizeof(int));
+        read(fd1, bmsParam.soc[dataIndex], sizeof(int));
         printf("%d %d\n", bmsParam.temp[dataIndex], bmsParam.soc[dataIndex]);
     }
 }
