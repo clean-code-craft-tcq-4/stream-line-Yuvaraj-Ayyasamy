@@ -7,6 +7,8 @@
 
 #define MAXSENSORCNT    2
 #define NUMOFREADINGS	50
+#define NUMOFREADINGS   8
+#define MAXNOOFBMSDATA  (MAXSENSORCNT * NUMOFREADINGS * NUMOFREADINGS)
 #define MIN_TEMP        0
 #define MAX_TEMP        45
 #define MIN_SOC         20
@@ -22,7 +24,8 @@ typedef struct BMSData
 }BMSData;
 
 void sender(int fd1[], BMSData bmsParam[]);
-void receiver(int fd1[]);
 void writeTo(int fd1, BMSData bmsParam[]);
+void getBMSData(char dataArray[], BMSData bmsParam[]);
+void receiver(int fd1[]);
 void readFrom(int fd1);
 BMSData generateSensorBMSData(BMSData bmsParam);
