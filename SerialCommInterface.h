@@ -18,8 +18,8 @@ typedef struct BMSData
     int soc[NUMOFREADINGS];
 }BMSData;
 
-int sender(int fd1[]);
-void receiver(int fd1[], int dataLen);
-void writeTo(int fd1, BMSData bmsParam, int *dataLen);
-void readFrom(int fd1, BMSData bmsParam, int dataLen);
+void sender(int fd1[]);
+void receiver(int fd1[]);
+void writeTo(int fd1, BMSData bmsParam);
+void readFrom(int fd1);
 BMSData generateSensorBMSData(BMSData bmsParam);
