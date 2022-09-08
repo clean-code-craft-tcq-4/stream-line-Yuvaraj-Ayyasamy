@@ -25,19 +25,19 @@ int main() {
     }
     p = createProcess();
 
-    for (int sensorIndex = 0; sensorIndex < 1/*MAXSENSORCNT*/; sensorIndex++) {
+    for (int sensorIndex = 0; sensorIndex < MAXSENSORCNT; sensorIndex++) {
         bmsParam[sensorIndex] = generateSensorBMSData(bmsParam[sensorIndex]);
-    }
+   // }
        // for (int dataIndex = 0; dataIndex < NUMOFREADINGS; dataIndex++) {
             if (p < 0) {
                 fprintf(stderr, "fork Failed");
                // break;
             } else if (p > 0) {
-                sender(fd1, bmsParam[0]);
+                sender(fd1, bmsParam[sensorIndex]);
             } else {
                 receiver(fd1);
             }
       //  }
-   // }
+    }
  return 0;
 }
