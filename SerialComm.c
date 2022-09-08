@@ -22,13 +22,15 @@ int main() {
     }
     p = createProcess();
     for (int sensorIndex = 0; sensorIndex < MAXSENSORCNT; sensorIndex++) {
-        if (p < 0) {
-            fprintf(stderr, "fork Failed");
-            break;
-        } else if (p > 0) {
-            dataLen = sender(fd1);
-        } else {
-            receiver(fd1, dataLen);
+        for (int dataIndex = 0; dataIndex < NUMOFREADINGS; dataIndex++) {
+            if (p < 0) {
+                fprintf(stderr, "fork Failed");
+                break;
+            } else if (p > 0) {
+                dataLen = sender(fd1);
+            } else {
+                receiver(fd1, dataLen);
+            }
         }
     }
  return 0;
