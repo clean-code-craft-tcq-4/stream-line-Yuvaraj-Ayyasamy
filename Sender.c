@@ -1,7 +1,7 @@
 #include "SerialCommInterface.h"
 
 void writeTo(int fd1, BMSData bmsParam) {
-    dataLen = 0;
+    //dataLen = 0;
     for (int dataIndex = 0; dataIndex < 2/*NUMOFREADINGS*/; dataIndex++) {
         char tempArray[100];
         sprintf(tempArray, "%d %d\n", bmsParam.temp[dataIndex], bmsParam.soc[dataIndex]);
