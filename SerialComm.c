@@ -23,7 +23,7 @@ int main() {
         fprintf(stderr, "Pipe Failed");
     }
     p = createProcess();
-    for (int sensorIndex = 0; sensorIndex < MAXSENSORCNT; sensorIndex++) {
+   // for (int sensorIndex = 0; sensorIndex < MAXSENSORCNT; sensorIndex++) {
         for (int dataIndex = 0; dataIndex < NUMOFREADINGS; dataIndex++) {
             if (p < 0) {
                 fprintf(stderr, "fork Failed");
@@ -34,6 +34,6 @@ int main() {
                 receiver(fd1);
             }
         }
-    }
+   // }
  return 0;
 }
