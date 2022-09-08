@@ -4,21 +4,18 @@ pid_t createProcess() {
     return fork();
 }
 
-void generateSensorBMSData(BMSData bmsParam){
-    //for (int sensorIndex = 0; sensorIndex < MAXSENSORCNT; sensorIndex++) {
-	    for (int dataIndex = 0; dataIndex < NUMOFREADINGS; dataIndex++) {
-                bmsParam.temp[dataIndex] = (rand()%(MAX_TEMP - MIN_TEMP + 1));
-		bmsParam.soc[dataIndex] = (rand()%(MAX_SOC - MIN_SOC + 1)) + MIN_SOC;
-		printf("%d %d\n", bmsParam.temp[dataIndex], bmsParam.soc[dataIndex]);
-		    //bmsParam[sensorIndex].temperature[dataIndex] = (rand()%(MAX_TEMP - MIN_TEMP + 1));
-		    //bmsParam[sensorIndex].soc[dataIndex] = (rand()%(MAX_SOC - MIN_SOC + 1)) + MIN_SOC;
-	    }
-    //}
+void generateSensorBMSData(BMSData bmsParam) {
+    for (int dataIndex = 0; dataIndex < NUMOFREADINGS; dataIndex++) {
+        bmsParam.temp[dataIndex] = (rand()%(MAX_TEMP - MIN_TEMP + 1));
+        bmsParam.soc[dataIndex] = (rand()%(MAX_SOC - MIN_SOC + 1)) + MIN_SOC;
+        printf("%d %d\n", bmsParam.temp[dataIndex], bmsParam.soc[dataIndex]);
+    }
 }
 
 int main() {
     int fd1[2];
     pid_t p;
+    int dataLen = 0;
     if (pipe(fd1) == -1) {
         fprintf(stderr, "Pipe Failed");
     }
@@ -28,9 +25,9 @@ int main() {
             fprintf(stderr, "fork Failed");
             break;
         } else if (p > 0) {
-            sender(fd1);
+            dataLen = sender(fd1);
         } else {
-            receiver(fd1);
+            receiver(fd1, dataLen);
         }
     }
  return 0;
