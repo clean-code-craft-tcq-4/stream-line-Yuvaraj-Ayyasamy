@@ -1,9 +1,9 @@
 #include "SerialCommInterface.h"
 
 void readFrom(int fd1) {
-    char dataArray[800];
+    char dataArray[MAXNOOFBMSDATA];
     memset(dataArray, '\0', sizeof(dataArray));
-    read(fd1, dataArray, 800);
+    read(fd1, dataArray, MAXNOOFBMSDATA);
     printf("receiver:\n%s", dataArray);
 }
 
