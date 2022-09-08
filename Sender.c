@@ -15,7 +15,7 @@ void writeTo(int fd1, BMSData bmsParam[]) {
     write(fd1, dataArray, strlen(dataArray));
 }
 
-void sender(int fd1[], BMSData bmsParam) {
+void sender(int fd1[], BMSData bmsParam[]) {
     close(fd1[0]);
     writeTo(fd1[1], bmsParam);
     close(fd1[1]);
