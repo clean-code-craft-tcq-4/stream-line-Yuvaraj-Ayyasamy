@@ -1,7 +1,7 @@
 #include "SerialCommInterface.h"
 
 void getBMSData(char dataArray[], BMSData bmsParam[]) {
-    memset(dataArray, '\0', sizeof(dataArray));
+    memset(dataArray, '\0', MAXNOOFBMSDATA);
     for (int sensorIndex = 0; sensorIndex < MAXSENSORCNT; sensorIndex++) {
         for (int dataIndex = 0; dataIndex < NUMOFREADINGS; dataIndex++) {
             char tempArray[NUMOFREADINGS];
