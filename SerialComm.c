@@ -9,6 +9,7 @@ void generateSensorBMSData(BMSData bmsParam){
 	    for (int dataIndex = 0; dataIndex < NUMOFREADINGS; dataIndex++) {
                 bmsParam.temp[dataIndex] = (rand()%(MAX_TEMP - MIN_TEMP + 1));
 		bmsParam.soc[dataIndex] = (rand()%(MAX_SOC - MIN_SOC + 1)) + MIN_SOC;
+		printf("%d %d\n", bmsParam.temp[dataIndex], bmsParam.soc[dataIndex]);
 		    //bmsParam[sensorIndex].temperature[dataIndex] = (rand()%(MAX_TEMP - MIN_TEMP + 1));
 		    //bmsParam[sensorIndex].soc[dataIndex] = (rand()%(MAX_SOC - MIN_SOC + 1)) + MIN_SOC;
 	    }
