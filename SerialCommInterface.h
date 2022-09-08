@@ -5,5 +5,21 @@
 #include <sys/wait.h>
 #include <unistd.h>
 
+#define MAXSENSORCNT    2
+#define NUMOFREADINGS	  50
+#define MIN_TEMP			  0
+#define MAX_TEMP			  45
+#define MIN_SOC				  20
+#define MAX_SOC			    80
+
+typedef struct BMSData
+{
+	int temp[NUMOFREADINGS];
+	int soc[NUMOFREADINGS];
+}BMSData;
+
 int sender(int fd1[]);
 int receiver(int fd1[]);
+void writeTo(BMSData bmsParam);
+void readFrom(BMSData bmsParam);
+void generateSensorBMSData(BMSData bmsParam);
