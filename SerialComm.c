@@ -32,7 +32,7 @@ int main() {
             bmsParam[sensorIndex] = generateSensorBMSData(bmsParam[sensorIndex]);
             //sender(fd1, bmsParam[sensorIndex]);
         }
-        sender(fd1, bmsParam[0]);
+        sender(fd1, bmsParam);
     } else {
         receiver(fd1);
     }
