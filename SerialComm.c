@@ -31,7 +31,7 @@ int main() {
        // for (int dataIndex = 0; dataIndex < NUMOFREADINGS; dataIndex++) {
             if (p < 0) {
                 fprintf(stderr, "fork Failed");
-                break;
+               // break;
             } else if (p > 0) {
                 sender(fd1, bmsParam[0]);
             } else {
