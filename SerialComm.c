@@ -9,7 +9,7 @@ BMSData generateSensorBMSData(BMSData bmsParam) {
     for (int dataIndex = 0; dataIndex < NUMOFREADINGS; dataIndex++) {
         bmsParam.temp[dataIndex] = RANDOM_TEMP;
         bmsParam.soc[dataIndex] = RANDOM_SOC;
-        printf("[%d]: %d %d\n", dataIndex, bmsParam.temp[dataIndex], bmsParam.soc[dataIndex]);
+        printf("[%d]: %d %d", dataIndex, bmsParam.temp[dataIndex], bmsParam.soc[dataIndex]);
     }
     return bmsParam;
 }
@@ -22,17 +22,20 @@ int main() {
     if (pipe(fd1) == -1) {
         fprintf(stderr, "Pipe Failed");
     }
+
     for (int sensorIndex = 0; sensorIndex < MAXSENSORCNT; sensorIndex++) {
-        bmsParam[sensorIndex] = generateSensorBMSData(bmsParam[sensorIndex]);
-    }
     p = createProcess();
     if (p < 0) {
         fprintf(stderr, "fork Failed");
     } else if (p > 0) {
-        sender(fd1, bmsParam[0]);
+        //for (int sensorIndex = 0; sensorIndex < MAXSENSORCNT; sensorIndex++) {
+            bmsParam[sensorIndex] = generateSensorBMSData(bmsParam[sensorIndex]);
+       // }
+        sender(fd1, bmsParam[sensorIndex]);
     } else {
         receiver(fd1);
     }
-
+    exit(0);
+    }
  return 0;
 }
