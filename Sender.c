@@ -1,7 +1,7 @@
 #include "SerialCommInterface.h"
 void writeTo(int fd1, BMSData bmsParam) {
     for (int dataIndex = 0; dataIndex < NUMOFREADINGS; dataIndex++) {
-        write(fd1, bmsParam.temperature[dataIndex], int);
+        write(fd1, bmsParam.temp[dataIndex], int);
         write(fd1, bmsParam.soc[dataIndex], int);
     }
 }
