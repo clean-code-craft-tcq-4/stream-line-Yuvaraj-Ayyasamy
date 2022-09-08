@@ -18,7 +18,7 @@ typedef struct BMSData
     int soc[NUMOFREADINGS];
 }BMSData;
 
-void sender(int fd1[]);
+void sender(int fd1[], BMSData bmsParam);
 void receiver(int fd1[]);
 void writeTo(int fd1, BMSData bmsParam);
 void readFrom(int fd1);
