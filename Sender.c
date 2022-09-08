@@ -1,6 +1,6 @@
 #include "SerialCommInterface.h"
 
-BMSData writeTo(int fd1, BMSData bmsParam, int *dataLen) {
+void writeTo(int fd1, BMSData bmsParam, int *dataLen) {
     dataLen = 0;
     for (int dataIndex = 0; dataIndex < 1/*NUMOFREADINGS*/; dataIndex++) {
         char tempArray[100];
@@ -10,7 +10,6 @@ BMSData writeTo(int fd1, BMSData bmsParam, int *dataLen) {
        // write(fd1, &bmsParam.temp[dataIndex], sizeof(int));
        // write(fd1, &bmsParam.soc[dataIndex], sizeof(int));
     }
-    return bmsParam;
 }
 
 int sender(int fd1[]) {
