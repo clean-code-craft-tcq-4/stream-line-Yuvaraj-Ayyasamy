@@ -5,11 +5,13 @@ pid_t createProcess() {
 }
 
 BMSData generateSensorBMSData(BMSData bmsParam) {
-    for (int dataIndex = 0; dataIndex < 2/*NUMOFREADINGS*/; dataIndex++) {
+    int dataIndex = 0;
+  //  for (int dataIndex = 0; dataIndex < 2/*NUMOFREADINGS*/; dataIndex++) {
         bmsParam.temp[dataIndex] = (rand()%(MAX_TEMP - MIN_TEMP + 1));
         bmsParam.soc[dataIndex] = (rand()%(MAX_SOC - MIN_SOC + 1)) + MIN_SOC;
-        printf("%d %d\n", bmsParam.temp[dataIndex], bmsParam.soc[dataIndex]);
-    }
+        printf("[%d]: %d %d\n", dataIndex, bmsParam.temp[dataIndex], bmsParam.soc[dataIndex]);
+    dataIndex++;
+   // }
     return bmsParam;
 }
 
