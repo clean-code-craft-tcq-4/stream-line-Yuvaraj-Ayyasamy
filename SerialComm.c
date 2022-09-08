@@ -18,10 +18,10 @@ int main()
         break;
     } else if (p > 0) {
         sender(fd1);
-        wait(NULL);
+        //wait(NULL);
     } else {
         receiver(fd1);
-        exit(0);
+        //exit(0);
     }
     }
  return 0;
