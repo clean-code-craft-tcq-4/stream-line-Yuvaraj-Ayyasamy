@@ -6,11 +6,11 @@
 #include <unistd.h>
 
 #define MAXSENSORCNT    2
-#define NUMOFREADINGS	  50
-#define MIN_TEMP			  0
-#define MAX_TEMP			  45
-#define MIN_SOC				  20
-#define MAX_SOC			    80
+#define NUMOFREADINGS	50
+#define MIN_TEMP	0
+#define MAX_TEMP	45
+#define MIN_SOC		20
+#define MAX_SOC		80
 
 typedef struct BMSData
 {
