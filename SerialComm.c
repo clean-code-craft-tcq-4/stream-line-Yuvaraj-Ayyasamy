@@ -9,7 +9,7 @@ BMSData generateSensorBMSData(BMSData bmsParam) {
     for (int dataIndex = 0; dataIndex < NUMOFREADINGS; dataIndex++) {
         bmsParam.temp[dataIndex] = RANDOM_TEMP;
         bmsParam.soc[dataIndex] = RANDOM_SOC;
-        printf("[%d]: %d %d", dataIndex, bmsParam.temp[dataIndex], bmsParam.soc[dataIndex]);
+        printf("[%d]: %d %d\n", dataIndex, bmsParam.temp[dataIndex], bmsParam.soc[dataIndex]);
     }
     return bmsParam;
 }
@@ -35,7 +35,7 @@ int main() {
     } else {
         receiver(fd1);
     }
-    exit(0);
+   // exit(0);
     }
  return 0;
 }
