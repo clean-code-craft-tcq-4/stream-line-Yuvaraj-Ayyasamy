@@ -7,10 +7,10 @@
 
 #define MAXSENSORCNT    2
 #define NUMOFREADINGS	50
-#define MIN_TEMP		0
-#define MAX_TEMP		45
-#define MIN_SOC			20
-#define MAX_SOC			80
+#define MIN_TEMP        0
+#define MAX_TEMP        45
+#define MIN_SOC         20
+#define MAX_SOC         80
 #define RANDOM_TEMP     (rand()%(MAX_TEMP - MIN_TEMP + 1))
 #define RANDOM_SOC      ((rand()%(MAX_SOC - MIN_SOC + 1)) + MIN_SOC)
 
