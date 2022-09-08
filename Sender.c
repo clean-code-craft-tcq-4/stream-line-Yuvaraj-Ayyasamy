@@ -1,17 +1,9 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include "SerialCommInterface.h"
 
-int sender() {
-    FILE* fptr;
-    int num = 1234;
-    fptr = fopen("test.txt", "w");
-    if (NULL == fptr) {
-        printf("file can't be opened \n");
-    } else {
-        printf("content of this file are \n");
-        fprintf(fptr,"%d",num);
-    }
-    fclose(fptr);
+int sender(int fd1[]) {
+    char concat_str[100];
+    close(fd1[0]);
+    write(fd1[1], input_str, strlen(input_str) + 1);
+    close(fd1[1]);
     return 0;
 }
