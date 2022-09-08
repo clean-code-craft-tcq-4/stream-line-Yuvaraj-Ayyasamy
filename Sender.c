@@ -1,8 +1,8 @@
 #include "SerialCommInterface.h"
-void writeTo(BMSData bmsParam) {
+void writeTo(int fd1, BMSData bmsParam) {
     for (int dataIndex = 0; dataIndex < NUMOFREADINGS; dataIndex++) {
-        write(fd1[1], bmsParam.temperature[dataIndex], int);
-        write(fd1[1], bmsParam.soc[dataIndex], int);
+        write(fd1, bmsParam.temperature[dataIndex], int);
+        write(fd1, bmsParam.soc[dataIndex], int);
     }
 }
 
@@ -17,7 +17,7 @@ int sender(int fd1[]) {
     //strncpy(input_str, "www.geeks", 10);
     close(fd1[0]);
     //for (int sensorIndex = 0; sensorIndex < MAXSENSORCNT; sensorIndex++) {
-        writeTo(bmsParam);
+        writeTo(fd1[1], bmsParam);
     //}
     close(fd1[1]);
     return 0;
