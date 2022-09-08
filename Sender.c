@@ -2,7 +2,7 @@
 
 void writeTo(int fd1, BMSData bmsParam, int *dataLen) {
     dataLen = 0;
-    for (int dataIndex = 0; dataIndex < 1/*NUMOFREADINGS*/; dataIndex++) {
+    for (int dataIndex = 0; dataIndex < 2/*NUMOFREADINGS*/; dataIndex++) {
         char tempArray[100];
         sprintf(tempArray, "%d %d\n", bmsParam.temp[dataIndex], bmsParam.soc[dataIndex]);
         dataLen += strlen(tempArray);
