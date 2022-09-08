@@ -9,7 +9,14 @@ void writeTo(int fd1, BMSData bmsParam) {
         sprintf(tempArray, "%d %d\n", bmsParam.temp[dataIndex], bmsParam.soc[dataIndex]);
         strcat(dataArray, tempArray);
     }
-    printf("sender: \n %s\n", dataArray);
+    bmsParam++;
+    for (int dataIndex = 0; dataIndex < NUMOFREADINGS; dataIndex++) {
+        char tempArray[10];
+        memset(tempArray, '\0', sizeof(tempArray));
+        sprintf(tempArray, "%d %d\n", bmsParam.temp[dataIndex], bmsParam.soc[dataIndex]);
+        strcat(dataArray, tempArray);
+    }
+    printf("sender: \n%s", dataArray);
     write(fd1, dataArray, strlen(dataArray));
 }
 
