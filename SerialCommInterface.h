@@ -5,6 +5,8 @@
 #include <sys/wait.h>
 #include <unistd.h>
 
+#define SUCCESS         0
+#define FAIL            -1
 #define MAXSENSORCNT    2
 #define NUMOFREADINGS	50
 #define SINGLEBMSDATA   8
@@ -15,7 +17,6 @@
 #define MAX_SOC         80
 #define RANDOM_TEMP     (rand()%(MAX_TEMP - MIN_TEMP + 1))
 #define RANDOM_SOC      ((rand()%(MAX_SOC - MIN_SOC + 1)) + MIN_SOC)
-
 
 typedef struct BMSData
 {
@@ -29,3 +30,4 @@ void getBMSData(char dataArray[], BMSData bmsParam[]);
 void receiver(int fd1[]);
 void readFrom(int fd1);
 BMSData generateSensorBMSData(BMSData bmsParam);
+int commInit();
