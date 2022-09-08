@@ -4,7 +4,7 @@ void readFrom(int fd1) {
     char dataArray[350];
     memset(dataArray, '\0', sizeof(dataArray));
     read(fd1, dataArray, 350);
-    printf("receiver:\n %s", dataArray);
+    printf("receiver:\n%s", dataArray);
 }
 
 void receiver(int fd1[]) {
