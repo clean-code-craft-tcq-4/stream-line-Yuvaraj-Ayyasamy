@@ -7,8 +7,8 @@ pid_t createProcess() {
 void generateSensorBMSData(BMSData bmsParam){
     //for (int sensorIndex = 0; sensorIndex < MAXSENSORCNT; sensorIndex++) {
 	    for (int dataIndex = 0; dataIndex < NUMOFREADINGS; dataIndex++) {
-            bmsParam.temperature[dataIndex] = (rand()%(MAX_TEMP - MIN_TEMP + 1));
-		    bmsParam.soc[dataIndex] = (rand()%(MAX_SOC - MIN_SOC + 1)) + MIN_SOC;
+                bmsParam.temp[dataIndex] = (rand()%(MAX_TEMP - MIN_TEMP + 1));
+		bmsParam.soc[dataIndex] = (rand()%(MAX_SOC - MIN_SOC + 1)) + MIN_SOC;
 		    //bmsParam[sensorIndex].temperature[dataIndex] = (rand()%(MAX_TEMP - MIN_TEMP + 1));
 		    //bmsParam[sensorIndex].soc[dataIndex] = (rand()%(MAX_SOC - MIN_SOC + 1)) + MIN_SOC;
 	    }
