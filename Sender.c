@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-int main() {
+int sender() {
     FILE* fptr;
     int num = 1234;
     fptr = fopen("test.txt", "w");
