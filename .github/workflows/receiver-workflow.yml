@@ -24,4 +24,4 @@ jobs:
     - name: Build and Test
       run: mvn -f pom.xml test
     - name: Build and main class
-      run: mvn -f ./pom.xml compile exec:java -Dexec.mainClass="com.tdd.receiver.Receiver 0 7.8 56 89 67 35 76"
+      run: mvn -f ./receiver/pom.xml compile exec:java -Dexec.mainClass="com.tdd.receiver.Receiver 0 7.8 56 89 67 35 76"
