@@ -4,6 +4,11 @@
 package com.tdd.receiver.tests;
 
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
+import java.util.List;
+
 import org.junit.Test;
 
 import com.tdd.receiver.ReceiverHandler;
@@ -24,7 +29,10 @@ public class ReceiverTest {
   @Test
   public void testReceiver() throws InvalidInputException {
     String[] input = { "0", "5.6", "6", "15", "34.6" };
-    new ReceiverHandler().parseReceivedSignals(input);
+    List<Double> signals = new ReceiverHandler().parseReceivedSignals(input);
+    assertNotNull(signals);
+    assertEquals("Expected value not Received", (Double) 5.6, signals.get(1));
+    assertEquals("Expected value not Received", (Double) 6.0, signals.get(2));
   }
 
   /**

@@ -3,6 +3,8 @@
  */
 package com.tdd.receiver;
 
+import java.util.List;
+
 import com.tdd.receiver.exception.InvalidInputException;
 
 /**
@@ -15,7 +17,9 @@ public class Receiver {
    * @throws InvalidInputException
    */
   public static void main(final String[] args) throws InvalidInputException {
-    new ReceiverHandler().parseReceivedSignals(args);
+    ReceiverHandler receiverHandler = new ReceiverHandler();
+    List<Double> signals = receiverHandler.parseReceivedSignals(args);
+    receiverHandler.printSignals(signals);
   }
 
 }
